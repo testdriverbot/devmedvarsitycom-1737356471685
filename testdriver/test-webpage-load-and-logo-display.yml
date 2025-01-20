@@ -1,0 +1,23 @@
+version: 4.1.36
+steps:
+  - prompt: Open the webpage.
+    commands:
+      - command: press-keys
+        keys:
+          - control
+          - l
+      - command: type
+        text: https://example.com
+      - command: press-keys
+        keys:
+          - enter
+  - prompt: Assert that the webpage loads successfully.
+    commands:
+      - command: assert
+        expect: the webpage displays "Example Domain"
+  - prompt: >-
+      Assert that the logo is displayed correctly.  # Use the content of the
+      file from the environment
+    commands:
+      - command: assert
+        expect: the logo is displayed correctly
